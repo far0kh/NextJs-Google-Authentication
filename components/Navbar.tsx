@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 
-export default function Navbar() {
-  const { status } = useSession();
+const Navbar = () => {
+  const status = null;
+  // const { status } = useSession();
+
   return (
-    <div className="p-4 flex justify-between items-center shadow-md">
+    <nav className="p-4 flex justify-between items-center shadow-md">
       <Link className="font-bold text-lg text-blue-700" href={"/"}>
-        GTCoding
+        Home
       </Link>
       {status === "authenticated" ? (
         <button
@@ -25,6 +27,8 @@ export default function Navbar() {
           Sign In
         </button>
       )}
-    </div>
+    </nav>
   );
 }
+
+export default Navbar;
