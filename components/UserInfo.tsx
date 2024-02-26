@@ -7,9 +7,15 @@ import { useSession } from "next-auth/react";
 const UserInfo = () => {
   const { status, data: session } = useSession();
 
-  if (status === "authenticated") {
+  if (status === "loading") {
     return (
-      <div className="shadow-xl p-8 rounded-md flex flex-col gap-3 bg-yellow-200">
+      <div className="shadow-xl px-8 py-3 rounded-md bg-blue-500 text-white">
+        <h1>Loading ...</h1>
+      </div>
+    )
+  } else if (status === "authenticated") {
+    return (
+      <div className="shadow-xl p-8 rounded-md flex flex-col gap-3 bg-blue-500 text-white">
         {session?.user?.image && <Image
           src={session.user.image}
           width={60}
