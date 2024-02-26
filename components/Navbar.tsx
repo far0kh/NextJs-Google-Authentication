@@ -4,8 +4,7 @@ import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
-  const status = null;
-  // const { status } = useSession();
+  const { status } = useSession();
 
   return (
     <nav className="p-4 flex justify-between items-center shadow-md">
