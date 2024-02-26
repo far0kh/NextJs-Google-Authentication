@@ -3,6 +3,7 @@
 import Image from "next/image";
 import GoogleSignIn from "./GoogleSignIn";
 import { useSession } from "next-auth/react";
+import SignOutBtn from "./SignOutBtn";
 
 const UserInfo = () => {
   const { status, data: session } = useSession();
@@ -28,6 +29,9 @@ const UserInfo = () => {
         </div>
         <div>
           Email: <span className="font-bold">{session?.user?.email}</span>
+        </div>
+        <div>
+          <SignOutBtn />
         </div>
       </div>
     );

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import SignOutBtn from "./SignOutBtn";
 
 const Navbar = () => {
   const { status } = useSession();
@@ -12,12 +13,7 @@ const Navbar = () => {
         Home
       </Link>
       {status === "authenticated" ? (
-        <button
-          onClick={() => signOut()}
-          className="bg-slate-900 text-white px-6 py-2 rounded-md"
-        >
-          Sign Out
-        </button>
+        <SignOutBtn />
       ) : (
         <button
           onClick={() => signIn("google")}
